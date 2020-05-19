@@ -1,0 +1,30 @@
+import discord
+
+client = discord.Client()
+
+@client.event
+async def on_ready():
+    print('We have logged in'.format(client))
+
+@client.event
+async def on_message(message): 
+    if message.author == client.user:
+        return
+
+    if message.content.startswith('$hello'):
+        await message.channel.send('Hello!')
+    if message.content.startswith('$cute'):
+        await message.channel.send('UwU thank you master!!!')
+    if message.content.startswith('$drinks'):
+        await message.channel.send('Heres your drink master, :milk::glass_of_milk:')
+    if message.content.startswith('$fondle'):
+        await message.channel.send('o-oh.. master what are you doing')
+    if message.content.startswith('$gm'):
+        embed = discord.Embed(title="Goodmorning Master", description="Would you like me to do anything?", color=0x00ff00)
+        embed.add_field(name="hello", value="Will reply back with hello", inline=False)
+        embed.add_field(name="cute", value="Will reply back with UwU", inline=False)
+        embed.add_field(name="drinks", value="Maidchan will bring drinks", inline=False)
+        embed.add_field(name="fondle", value="Hehe something naughtys", inline=False)
+        embed.add_field(name="gm", value="Will help with commands", inline=False)
+        await message.channel.send(embed=embed)
+        
