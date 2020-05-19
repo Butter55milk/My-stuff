@@ -1,0 +1,57 @@
+import discord
+import datetime
+import random2 as r
+#currentDate = datetime.datetime.now()
+client = discord.Client()
+@client.event
+async def on_ready():
+    print('We have logged in'.format(client))
+
+@client.event
+async def on_message(message): 
+    if message.author == client.user:
+        return
+            
+    if message.content.startswith('$hello'):
+        await message.channel.send('Hello!')
+    if message.content.startswith('$cute'):
+        await message.channel.send('UwU thank you master!!!')
+    if message.content.startswith('$drinks'):
+        await message.channel.send('Heres your drink master, :milk::glass_of_milk:')
+    if message.content.startswith('$fondle'):
+        await message.channel.send('o-oh.. master what are you doing')
+    if message.content.startswith('$gm'):
+        embed = discord.Embed(title="Goodmorning Master", description="Would you like me to do anything?", color=0x00ff00)
+        embed.add_field(name="hello", value="Will reply back with hello", inline=False)
+        embed.add_field(name="cute", value="Will reply back with UwU", inline=False)
+        embed.add_field(name="drinks", value="Maidchan will bring drinks", inline=False)
+        embed.add_field(name="fondle", value="Hehe something naughtys", inline=False)
+        embed.add_field(name="gm", value="Will help with commands", inline=False)
+        await message.channel.send(embed=embed)
+#chat with elizabeth
+    if message.content.startswith('$elizabeth'):
+        embed = discord.Embed(title="Goodmorning Master", description="How are you doing on this absolutely fine day?", color=0x00ff00)
+        await message.channel.send(embed=embed)
+        
+    if message.content.startswith('$good'):
+        await message.channel.send('Awww im glad to hear it master!')
+    if message.content.startswith('$ily'):
+        await message.channel.send('Awww master, ill always love you unconditionally!!!')
+    if message.content.startswith('$goodbye'):
+        await message.channel.send('Thank you for having me over, i really enjoyed myself!See you later master.')
+            
+    if message.content.startswith('$bad'):
+        await message.channel.send(badReply) 
+    if message.content.startswith('$sad'):
+        await message.channel.send(badReply)
+    if message.content.startswith('$terrible'):
+        await message.channel.send(badReply)
+    if message.content.startswith('$meh'):
+        await message.channel.send(badReply)
+    if message.content.startswith('$kak'):
+        await message.channel.send(badReply)
+    badReply = r.choice(['Im sorry to hear that, whats wrong?', 'Im sorry master is there anything that i can help with', 'Youre allowed to have bad days master its natural just keep in mind that the storm will stop eventually', 'Youre feelings are valid, you wanna talk about it?'])
+#calendar function 
+   # givenDate = datetime.datetime("2020", m, d)
+    #if message.content.startswith('$timehelp'):
+     #   await message.channel.send("Please put in a message the month and day for example 01, 25")
