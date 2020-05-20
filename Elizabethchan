@@ -1,4 +1,4 @@
-import discord
+importt discord
 import datetime
 import random2 as r
 #currentDate = datetime.datetime.now()
@@ -55,3 +55,4 @@ async def on_message(message):
    # givenDate = datetime.datetime("2020", m, d)
     #if message.content.startswith('$timehelp'):
      #   await message.channel.send("Please put in a message the month and day for example 01, 25")
+    
